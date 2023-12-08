@@ -1,3 +1,9 @@
+create database scratch_1;
+
+use scratch_1;
+
+show databases;
+
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50),
