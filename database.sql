@@ -1,131 +1,269 @@
-create database scratch_1;
-
-use scratch_1;
-
 show databases;
 
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50),
-  surname VARCHAR(50),
-  username VARCHAR(50),
-  birthdate DATE
-  username VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
+create database `efzdb`;
+
+use `efzdb`;
+
+CREATE TABLE `users` (
+    `user_id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(50),
+    `surname` VARCHAR(50),
+    `username` VARCHAR(50) NOT NULL UNIQUE ,
+    `password` VARCHAR(50) NOT NULL
 );
 
-INSERT INTO users (name, surname, username, birthdate) VALUES
-    ('John', 'Doe', 'johndoe87', '1990-05-15'),
-    ('Alice', 'Smith', 'asmith', '1985-09-20'),
-    ('Michael', 'Johnson', 'mjohn', '1992-03-10'),
-    ('Emily', 'Brown', 'em_brown', '1988-11-25'),
-    ('Sophia', 'Williams', 'sophwill', '1995-07-08'),
-    ('Daniel', 'Taylor', 'dantay', '1993-02-18'),
-    ('Olivia', 'Miller', 'olivm', '1997-04-30'),
-    ('Ethan', 'Anderson', 'eth_and', '1991-12-05'),
-    ('Ava', 'Wilson', 'ava_wil', '1987-06-12'),
-    ('Liam', 'Martinez', 'liam_m', '1994-08-22');
+ALTER TABLE `users`
+    DROP COLUMN `birthdate`;
 
-CREATE TABLE modules (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  module_name VARCHAR(255) NOT NULL
+ALTER TABLE `users`
+    MODIFY COLUMN `username` VARCHAR(50);
+
+
+
+show table `users`;
+
+drop table `users`;
+
+select * from `semesters`;
+
+INSERT INTO `users` (`name`, `surname`, `username`, `password`) VALUES
+            ( 'Alice', 'Smith', 'alice123', 'password1'),
+            ( 'Bob', 'Johnson', 'bob89', 'pass123word'),
+            ( 'Charlie', 'Brown', 'charlieb', 'securePW'),
+            ( 'David', 'Lee', 'davidlee', 'davidpass'),
+            ( 'Emma', 'Garcia', 'emma_g', 'emmapwd123'),
+            ( 'Frank', 'Martinez', 'frankm', 'password123'),
+            ( 'Grace', 'Nguyen', 'graceng', 'gracepass'),
+            ( 'Hannah', 'Kim', 'hannahk', 'hannah123'),
+            ( 'Ian', 'Adams', 'ian_a', 'ianpassword'),
+            ( 'Jessica', 'Wang', 'jessw', 'jessica456');
+
+
+
+CREATE TABLE `modules` (
+    `module_id` INT AUTO_INCREMENT PRIMARY KEY,
+    `module_name` VARCHAR(255) NOT NULL
 );
 
-INSERT INTO modules (module_name) VALUES
-('264'),
-('265'),
-('270'),
-('271'),
-('283'),
-('287'),
-('286'),
-('213'),
-('266'),
-('273');
-('279'),
-('278'),
-('284'),
-('307'),
-('288'),
-('431');
-('268');
-('267');
-('274');
-('281');
-('280');
-('285');
-('291');
-('290');
-('306');
-('275');
-('282');
+
+INSERT INTO `modules` (`module_name`) VALUES
+                                          ('200'),
+                                          ('201'),
+                                          ('202'),
+                                          ('203'),
+                                          ('204'),
+                                          ('205'),
+                                          ('206'),
+                                          ('207'),
+                                          ('208'),
+                                          ('209'),
+                                          ('210'),
+                                          ('211'),
+                                          ('212'),
+                                          ('213'),
+                                          ('214'),
+                                          ('215'),
+                                          ('216'),
+                                          ('217'),
+                                          ('218'),
+                                          ('219'),
+                                          ('220'),
+                                          ('221'),
+                                          ('222'),
+                                          ('223'),
+                                          ('224'),
+                                          ('225'),
+                                          ('226'),
+                                          ('227'),
+                                          ('228'),
+                                          ('229'),
+                                          ('230'),
+                                          ('231'),
+                                          ('232'),
+                                          ('233'),
+                                          ('234'),
+                                          ('235'),
+                                          ('236'),
+                                          ('237'),
+                                          ('238'),
+                                          ('239'),
+                                          ('240'),
+                                          ('241'),
+                                          ('242'),
+                                          ('243'),
+                                          ('244'),
+                                          ('245'),
+                                          ('246'),
+                                          ('247'),
+                                          ('248'),
+                                          ('249'),
+                                          ('250'),
+                                          ('251'),
+                                          ('252'),
+                                          ('253'),
+                                          ('254'),
+                                          ('255'),
+                                          ('256'),
+                                          ('257'),
+                                          ('258'),
+                                          ('259'),
+                                          ('260'),
+                                          ('261'),
+                                          ('262'),
+                                          ('263'),
+                                          ('264'),
+                                          ('265'),
+                                          ('266'),
+                                          ('267'),
+                                          ('268'),
+                                          ('269'),
+                                          ('270'),
+                                          ('271'),
+                                          ('272'),
+                                          ('273'),
+                                          ('274'),
+                                          ('275'),
+                                          ('276'),
+                                          ('277'),
+                                          ('278'),
+                                          ('279'),
+                                          ('280'),
+                                          ('281'),
+                                          ('282'),
+                                          ('283'),
+                                          ('284'),
+                                          ('285'),
+                                          ('286'),
+                                          ('287'),
+                                          ('288'),
+                                          ('289'),
+                                          ('290'),
+                                          ('291'),
+                                          ('292'),
+                                          ('293'),
+                                          ('294'),
+                                          ('295'),
+                                          ('296'),
+                                          ('297'),
+                                          ('298'),
+                                          ('299'),
+                                          ('300');
 
 
-CREATE TABLE semesters (
-  semester_id INT AUTO_INCREMENT PRIMARY KEY,
-  semester_name VARCHAR(255) NOT NULL
+show `modules`;
+
+CREATE TABLE `semesters` (
+    `semester_id` INT AUTO_INCREMENT PRIMARY KEY,
+    `semester_name` VARCHAR(255) NOT NULL
 );
 
-INSERT INTO semesters (semester_name) VALUES
-('Herbstsemester 2021'),
-('Frühlingssemester 2022'),
-('Herbstsemester 2022'),
-('Frühlingssemester 2023'),
-('Herbstsemester 2023'),
-('Frühlingssemester 2024');
-('Herbstsemester 2024'),
-('Frühlingssemester 2025'),
-('Herbstsemester 2025')
+
+INSERT INTO `semesters` (`semester_name`) VALUES
+                       ('Herbstsemester 2021'),
+                       ('Frühlingssemester 2022'),
+                       ('Herbstsemester 2022'),
+                       ('Frühlingssemester 2023'),
+                       ('Herbstsemester 2023'),
+                       ('Frühlingssemester 2024'),
+                       ('Herbstsemester 2024'),
+                       ('Frühlingssemester 2025'),
+                       ('Herbstsemester 2025'),
+                       ('Frühlingssemester 2026');
 
 
-CREATE TABLE grades (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL,
-  module_id INT NOT NULL,
-  semester_id INT NOT NULL,
-  grade DECIMAL(3,1) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(user_id),
-  FOREIGN KEY (module_id) REFERENCES modules(module_id),
-  FOREIGN KEY (semester_id) REFERENCES semesters(semester_id)
+drop table `grades`;
+
+
+CREATE TABLE `grades` (
+    `user_id` INT,
+    `module_id` INT,
+    `semester_id` INT,
+    `grade` DECIMAL(3, 2),
+    FOREIGN KEY (`semester_id`) References `semesters`(`semester_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`),
+    FOREIGN KEY (`module_id`) REFERENCES `modules`(`module_id`)
 );
 
-INSERT INTO grades (user_id, module_id, semester_id, grade) VALUES
-(1, 1, 1, 4.5),
-(1, 2, 1, 5.0),
-(1, 3, 2, 4.0),
-(2, 1, 1, 3.8),
-(2, 2, 2, 4.2),
-(2, 3, 2, 5.0),
-(3, 1, 3, 4.0),
-(3, 2, 3, 4.5),
-(3, 3, 4, 3.7),
-(4, 1, 3, 4.8),
-(4, 2, 4, 5.0),
-(4, 3, 4, 4.2),
-(5, 1, 5, 3.5),
-(5, 2, 5, 4.0),
-(5, 3, 6, 4.5),
-(6, 1, 5, 4.7),
-(6, 2, 6, 5.0),
-(6, 3, 6, 4.8),
-(7, 1, 7, 3.9),
-(7, 2, 7, 4.0),
-(7, 3, 8, 4.3),
-(8, 1, 7, 4.5),
-(8, 2, 8, 4.0),
-(8, 3, 8, 4.7),
-(9, 1, 9, 4.0),
-(9, 2, 9, 4.5),
-(9, 3, 10, 4.8),
-(10, 1, 9, 3.5),
-(10, 2, 10, 4.0),
-(10, 3, 10, 3.9);
+ALTER TABLE `users`
+    MODIFY COLUMN `grade_id` VARCHAR(50);
+
+ALTER TABLE `grades` ADD COLUMN `semester_id` INT AFTER `module_id`;
+
+DELETE * FROM `grades` WHERE 1
+
+UPDATE `grades` SET `semester_id` = 1 WHERE 1;
 
 
-SELECT users.username AS Benutzername, modules.module_name AS Modul, semesters.semester_name AS Semester,
-       grades.grade AS Note
+
+INSERT INTO `grades` (`user_id`, `module_id`, `semester_id`, `grade`) VALUES
+                (1, 1, 1, 4.5),
+                (2, 1, 2, 3.2),
+                (1, 2, 3, 5.8),
+                (3, 2, 5, 2.5),
+                (4, 3, 4, 4.0),
+                (5, 4, 6, 3.7),
+                (6, 5, 7, 4.2),
+                (7, 6, 8, 3.9),
+                (8, 7, 9, 2.8),
+                (9, 8, 10, 4.5);
+
+
+CREATE TABLE `certificate` (
+    `certificate_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `user_id` INT,
+    `module_id` INT,
+    `grade_id` INT,
+    `semester_id` INT,
+    FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`),
+    FOREIGN KEY (`module_id`) REFERENCES `modules`(`module_id`),
+    FOREIGN KEY (`grade_id`) REFERENCES `grades`(`grade_id`),
+    FOREIGN KEY (`semester_id`) REFERENCES `semesters`(`semester_id`)
+);
+
+
+CREATE TABLE `certificate` (
+                               `certificate_id` INT AUTO_INCREMENT PRIMARY KEY,
+                               `user_id` INT,
+                               `module_id` INT,
+                               `semester_id` INT,
+                               FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`),
+                               FOREIGN KEY (`module_id`) REFERENCES `modules`(`module_id`),
+                               FOREIGN KEY (`semester_id`) REFERENCES `semesters`(`semester_id`)
+);
+
+
+INSERT INTO `certificate` (`user_id`, `module_id`, `grade_id`, `semester_id`) VALUES
+         (1, 1, 1, 1),
+         (2, 1, 2, 1),
+         (1, 2, 3, 2),
+         (3, 2, 4, 2),
+         (4, 3, 5, 3),
+         (5, 4, 6, 4),
+         (6, 5, 7, 5),
+         (7, 6, 8, 6),
+         (8, 7, 9, 7),
+         (9, 8, 10, 8);
+
+
+
+SELECT DISTINCT users.username AS Benutzername, modules.module_name AS Modul, semesters.semester_name AS Semester,
+grades.grade AS Note
 FROM grades
 JOIN users ON grades.user_id = users.user_id
 JOIN modules ON grades.module_id = modules.module_id
 JOIN semesters ON grades.semester_id = semesters.semester_id
-WHERE users.username = 'UsernameDesBenutzers';
+WHERE users.username = 'bob89';
+
+SELECT
+    users.name AS Name,
+    users.surname AS Nachname,
+    modules.module_name AS Modul,
+    semesters.semester_name AS Semester,
+    grades.grade AS Note
+FROM
+    users
+        JOIN grades ON users.user_id = grades.user_id
+        JOIN modules ON grades.module_id = modules.module_id
+        JOIN semesters ON grades.semester_id = semesters.semester_id
+WHERE
+        users.username = 'emma_g';
