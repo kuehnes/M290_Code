@@ -37,7 +37,7 @@
 <body>
 <div class="login-container">
     <h2>Login</h2>
-    <form id="loginForm" action="ziel-seite.html" method="POST">
+    <form id="loginForm" action="efz-zeugnis.html.html" method="POST">
         <input type="text" id="username" name="username" placeholder="Benutzername" required>
         <input type="password" id="password" name="password" placeholder="Passwort" required>
         <input type="submit" value="Login">
