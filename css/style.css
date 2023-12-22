@@ -5,33 +5,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #f0f0f0;
 }
-
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}body {
-     font-family: Arial, sans-serif;
-     margin: 0;
-     padding: 0;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: 100vh;
-     background-color: #f0f0f0;
- }
 
 .login-container {
     background-color: #fff;
@@ -75,108 +50,25 @@ button:hover {
     background-color: #0056b3;
 }
 
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
-
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input {
-    padding: 8px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-
-/* EFZ-Zeugnis */
-
 /* Styling für den Header */
-h1 {
-    text-align: center;
+.header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: left;
     color: #333;
-}
-
-/* Styling für Benutzerinformationen */
-#user-info {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    width: 850px;
 }
 
 /* Styling für Semester und Module */
 .semester {
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
+}
+
+.score {
+    width: 850px;
 }
 
 /* Styling für den Score */
@@ -187,36 +79,26 @@ h1 {
     background-color: #f9f9f9;
 }
 
-body, h1, h2, p {
-    margin: 0;
-    padding: 0;
+.space-between {
+    width: 200px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-}
-
-.header {
-    background-color: #f0f0f0;
-    padding: 20px;
-}
-
-.semester {
-    margin: 20px;
-}
-
+/* Styling für Module */
 .module {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: solid thin #ccc;
-    padding-bottom :10px;
-    margin-bottom :10px
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-.grade-green,
-.grade-red {
-    width :20px ; height :20px ; border-radius :50%
+/* Styling für Noten */
+.grade-green, .grade-red {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
-.grade-green { background-color:green }
-.grade-red { background-color:red }
+.grade-green { background-color: green; }
+.grade-yellow { background-color: yellow; }
+.grade-red { background-color: red; }
