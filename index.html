@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Ausbildung Mediamatiker EFZ</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Ausbildung Mediamatiker EFZ</h1>
-    <div id="user-info">
-        <!-- Hier wird der Vor- und Nachname des Benutzers angezeigt -->
-    </div>
-    <div id="semesters">
-        <!-- Hier werden die Semester mit den Modulen und Noten angezeigt -->
-    </div>
-    <div id="score">
-        <!-- Hier wird der berechnete Score angezeigt -->
-    </div>
+<h1>Ausbildung Mediamatiker EFZ</h1>
 
-    <script src="script.js"></script>
+<div id="user-info">
+    <!-- Benutzerinformationen -->
+    <h2>Benutzerinformationen</h2>
+    <p>Vorname: Alice</p>
+    <p>Nachname: Smith</p>
+</div>
+
+<!-- Semester -->
+<div class="semester">
+    <h2>Semester 1.1 Herbst</h2>
+    <p>Module:
+        <span>Modul 1 - Note: 4.5</span>,
+        <span>Modul 2 - Note: 5.8</span>
+    </p>
+</div>
+
+<div class="semester">
+    <h2>Semester 1.2 Frühling</h2>
+    <p>Module:
+        <span>Modul 3 - Note: 3.2</span>,
+        <span>Modul 4 - Note: 2.5</span>
+    </p>
+</div>
+
+<!-- Score -->
+<div id="score">
+    <h2>Score</h2>
+    <p>Gesamtnote: 4.5</p>
+</div>
 </body>
 </html>
