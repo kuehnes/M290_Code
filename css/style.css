@@ -154,3 +154,36 @@ button:hover {
     background-color: #0056b3;
 }
 
+
+/* Beispiel-CSS für die Anzeige */
+
+/* Styling für den Header */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Styling für Benutzerinformationen */
+#user-info {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+/* Styling für Semester und Module */
+.semester {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+/* Styling für den Score */
+#score {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
