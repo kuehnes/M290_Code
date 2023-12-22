@@ -1,67 +1,319 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>Mockup</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Stil für das Login-Formular */
+        /* Füge hier deine CSS-Stile ein */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Inhalte in Spaltenrichtung anordnen */
+            background-color: #f0f0f0;
+            padding-left: 20px; /* Abstand für den Inhalt links */
         }
-        .login-container {
-            width: 300px;
-            margin: 100px auto;
+
+        .header {
+            background-color: #f0f0f0;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Titel links ausrichten */
         }
-        .login-container h2 {
-            text-align: center;
-        }
-        .login-container form input {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 8px;
+
+        .semester {
+            margin-top: 20px; /* Oben Abstand zum Header */
+            padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 3px;
+            background-color: #f9f9f9;
+            width: 300px; /* Breite des Semesterblocks */
         }
-        .login-container form input[type="submit"] {
+
+        .module {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: solid thin #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .grade-green,
+        .grade-red {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .grade-green {
+            background-color: green;
+        }
+
+        .grade-yellow {
+            background-color: yellow;
+        }
+
+        .grade-red {
+            background-color: red;
+        }
+
+        button {
+            width: 100%; /* Button auf volle Breite */
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
             background-color: #007bff;
             color: #fff;
             cursor: pointer;
         }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .semesters-container {
+            display: flex; /* Semesterncontainer nebeneinander anzeigen */
+            justify-content: space-between; /* Abstand zwischen den Semestern */
+        }
     </style>
 </head>
 <body>
-<div class="login-container">
-    <h2>Login</h2>
-    <form id="loginForm" action="efz-zeugnis.html.html" method="POST">
-        <input type="text" id="username" name="username" placeholder="Benutzername" required>
-        <input type="password" id="password" name="password" placeholder="Passwort" required>
-        <input type="submit" value="Login">
-    </form>
+<div class="header">
+    <h1>Ausbildung Mediamatik EFZ</h1>
+    <p>Vorname Nachname</p>
+</div>
+
+<div class="semesters-container">
+    <!-- Erstes Semester -->
+    <div class="semester">
+        <h2>Semester 1.1 Herbst</h2>
+        <div class="module">
+            <label for="grade11">Modul 264</label>
+            <input type="number" id="grade11" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade12">Modul 265</label>
+            <input type="number" id="grade12" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade13">Modul 266</label>
+            <input type="number" id="grade13" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+    </div>
+    <div class="space-between"></div>
+    <!-- Zweites Semester -->
+    <div class="semester">
+        <h2>Semester 1.2 Frühling</h2>
+        <div class="module">
+            <label for="grade21">Modul 268</label>
+            <input type="number" id="grade21" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade22">Modul 269</label>
+            <input type="number" id="grade22" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade23">Modul 270</label>
+            <input type="number" id="grade23" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade24">Modul 271</label>
+            <input type="number" id="grade24" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+        <label for="grade14">Modul 267</label>
+        <input type="number" id="grade14" step="0.1" min="1" max="6">
+    </div>
+    </div>
+</div>
+
+<!-- Drittes Semester -->
+<div class="semesters-container">
+    <!-- Erstes Semester -->
+    <div class="semester">
+        <h2>Semester 2.1 Herbst</h2>
+        <div class="module">
+            <label for="grade11">Modul 264</label>
+            <input type="number" id="grade11" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade12">Modul 265</label>
+            <input type="number" id="grade12" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade13">Modul 266</label>
+            <input type="number" id="grade13" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+    </div>
+    <div class="space-between"></div>
+    <!-- Zweites Semester -->
+    <div class="semester">
+        <h2>Semester 2.2 Frühling</h2>
+        <div class="module">
+            <label for="grade21">Modul 268</label>
+            <input type="number" id="grade21" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade22">Modul 269</label>
+            <input type="number" id="grade22" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade23">Modul 270</label>
+            <input type="number" id="grade23" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade24">Modul 271</label>
+            <input type="number" id="grade24" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+    </div>
+</div>
+
+<div class="semesters-container">
+    <!-- Erstes Semester -->
+    <div class="semester">
+        <h2>Semester 3.1 Herbst</h2>
+        <div class="module">
+            <label for="grade11">Modul 264</label>
+            <input type="number" id="grade11" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade12">Modul 265</label>
+            <input type="number" id="grade12" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade13">Modul 266</label>
+            <input type="number" id="grade13" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+    </div>
+    <div class="space-between"></div>
+    <!-- Zweites Semester -->
+    <div class="semester">
+        <h2>Semester 3.2 Frühling</h2>
+        <div class="module">
+            <label for="grade21">Modul 268</label>
+            <input type="number" id="grade21" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade22">Modul 269</label>
+            <input type="number" id="grade22" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade23">Modul 270</label>
+            <input type="number" id="grade23" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade24">Modul 271</label>
+            <input type="number" id="grade24" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+    </div>
+</div>
+
+<div class="semesters-container">
+    <!-- Erstes Semester -->
+    <div class="semester">
+        <h2>Semester 4.1 Herbst</h2>
+        <div class="module">
+            <label for="grade11">Modul 264</label>
+            <input type="number" id="grade11" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade12">Modul 265</label>
+            <input type="number" id="grade12" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade13">Modul 266</label>
+            <input type="number" id="grade13" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+    </div>
+    <div class="space-between"></div>
+    <!-- Zweites Semester -->
+    <div class="semester">
+        <h2>Semester 4.2 Frühling</h2>
+        <div class="module">
+            <label for="grade21">Modul 268</label>
+            <input type="number" id="grade21" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade22">Modul 269</label>
+            <input type="number" id="grade22" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade23">Modul 270</label>
+            <input type="number" id="grade23" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade24">Modul 271</label>
+            <input type="number" id="grade24" step="0.1" min="1" max="6">
+        </div>
+        <div class="module">
+            <label for="grade14">Modul 267</label>
+            <input type="number" id="grade14" step="0.1" min="1" max="6">
+        </div>
+    </div>
+</div>
+
+<div class="score">
+    <h2>Gesamtscore</h2>
+    <button onclick="calculateScore('semester1')">Berechne Gesamtscore</button>
+    <p id="totalScore">---</p>
+    <!-- Weitere Module hier einfügen -->
+
 </div>
 
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Verhindert das Standardverhalten des Formulars (das direkte Absenden)
+    // Funktion zum Berechnen des Gesamtscores für das jeweilige Semester
+    function calculateScore(semester) {
+        let totalScore = 0;
+        const modules = document.querySelectorAll(`.${semester} input[type='number']`);
 
-        // Hier könntest du deine eigene Logik für die Authentifizierung implementieren
-        // Zum Beispiel könntest du die eingegebenen Werte überprüfen und dann entsprechend weiterleiten
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+        modules.forEach(module => {
+            totalScore += parseFloat(module.value) || 0;
+        });
 
-        // Hier könntest du eine Überprüfung der Daten vornehmen
-        // Angenommen, der Benutzer ist erfolgreich authentifiziert:
-        if (username === 'meinUsername' && password === 'meinPasswort') {
-            window.location.href = 'ziel-seite.html'; // Weiterleitung zur Ziel-Seite
-        } else {
-            alert('Falscher Benutzername oder Passwort. Bitte erneut versuchen.');
-            // Hier könntest du auch andere Aktionen durchführen, z. B. das Zurücksetzen der Eingabefelder
-        }
-    });
+        totalScore /= modules.length || 1; // Durchschnitt berechnen, 1 verhindert Division durch 0
+        document.getElementById('totalScore').textContent = totalScore.toFixed(1);
+    }
 </script>
 </body>
 </html>
