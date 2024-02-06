@@ -98,35 +98,14 @@ app.delete('/user/:id', (req, res) => {
 
 //Serverdaten
 
-// READ (SELECT) operation for user
-app.get('/user', (req, res) => {
-    connection.query('SELECT * FROM user', (err, rows, fields) => {
-        if (!err) {
-            console.log(rows);
-            res.send(rows);
-        } else {
-            console.log(err);
-        }
-    });
-});
 
 // CREATE (INSERT) operation for user
 app.post('/user', (req, res) => {
-    const { name, vorname, username } = req.body; // Assuming you have name, vorname, and username in the request body
+    const name = req.body.name; const vorname = req.body.vorname; const username = req.body.username;  // Assuming you have name, vorname, and username in the request body
+    console.log(req.body);
     connection.query('INSERT INTO user (name, vorname, username) VALUES (?, ?, ?)', [name, vorname, username], (err, result) => {
         if (!err) {
             res.send('Insert operation for user was successful');
-        } else {
-            console.log(err);
-        }
-    });
-});
-
-// DELETE operation for user
-app.delete('/user/:id', (req, res) => {
-    connection.query('DELETE FROM user WHERE id = ?', [req.params.id], (err, result) => {
-        if (!err) {
-            res.send('Delete operation for user was successful');
         } else {
             console.log(err);
         }
@@ -276,14 +255,9 @@ app.delete('/grades/:id', (req, res) => {
 // Remember to add necessary validations and error handling for production use.
 
 
-
-
-
-
-
-
+/*
 // Am Ende des Skripts oder bei Server-Shutdown
-connection.end();
+connection.end();*/
 
 
 
