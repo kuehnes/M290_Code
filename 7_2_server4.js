@@ -25,8 +25,8 @@ app.use(bodyParser.json());
 
 const config = {
     host: 'localhost',
-    database: 'appDB',
-    user: "appAdmin",
+    database: 'appdb',
+    user: 'appAdmin',
     password: 'appAdminPW'
 }
 
@@ -36,7 +36,7 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log('Connected to MySQL database:', connection.config.database);
    /*
-    var sqlstmt = 'SELECT * from user';
+    var sqlstmt = 'SELECT * from users';
     // Das SQL-Statement wird vorbereitetet
     connection.query(sqlstmt, function (err, result) {
         if (err) throw err;
@@ -50,7 +50,7 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 app.get('/', (req, res) => {
-    connection.query('SELECT * FROM user', [req.params.id], (err, rows, fields) => {
+    connection.query('SELECT * FROM users', [req.params.id], (err, rows, fields) => {
         if (!err) {
             console.log(rows);
             res.send(rows);
@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/user', (req, res) => {
-    connection.query('SELECT * FROM user', [req.params.id], (err, rows, fields) => {
+    connection.query('SELECT * FROM users', [req.params.id], (err, rows, fields) => {
         if (!err) {
             console.log(rows);
             res.send(rows);
@@ -73,7 +73,7 @@ app.get('/user', (req, res) => {
     })
 });
 app.get('/user/:id', (req, res) => {
-    connection.query('SELECT * FROM user WHERE id = ?', [req.params.id], (err, rows, fields) => {
+    connection.query('SELECT * FROM users WHERE id = ?', [req.params.id], (err, rows, fields) => {
         if (!err) {
             console.log(rows);
             res.send(rows);
@@ -85,7 +85,7 @@ app.get('/user/:id', (req, res) => {
 });
 
 app.delete('/user/:id', (req, res) => {
-    connection.query(' DELETE FROM user WHERE id = ? ', [req.params.id], (err, rows, fields) => {
+    connection.query(' DELETE FROM users WHERE id = ? ', [req.params.id], (err, rows, fields) => {
         if (!err) {
             res.send('Delete operation was successful')
             // res.send(rows)
@@ -99,11 +99,24 @@ app.delete('/user/:id', (req, res) => {
 //Serverdaten
 
 
+// UPDATE (INSERT) operation for user
+app.put('/user/:id', (req, res) => {
+    const name = req.body.name; const surname = req.body.vorname; const username = req.body.username; const password = req.body.passwort;// Assuming you have name, vorname, and username in the request body
+    console.log(req.body);
+    connection.query('UPDATE users SET name = ?, surname = ?, username = ?, password = ? WHERE id = ?', [name, surname, username, password, req.params.id], (err, result) => {
+        if (!err) {
+            res.send('Update operation for user was successful');
+        } else {
+            console.log(err);
+        }
+    });
+});
+
 // CREATE (INSERT) operation for user
 app.post('/user', (req, res) => {
-    const name = req.body.name; const vorname = req.body.vorname; const username = req.body.username;  // Assuming you have name, vorname, and username in the request body
+    const name = req.body.name; const surname = req.body.vorname; const username = req.body.username; const password = req.body.passwort;// Assuming you have name, vorname, and username in the request body
     console.log(req.body);
-    connection.query('INSERT INTO user (name, vorname, username) VALUES (?, ?, ?)', [name, vorname, username], (err, result) => {
+    connection.query('INSERT INTO users (name, surname, username, password) VALUES (?, ?, ?, ?)', [name, surname, username, password], (err, result) => {
         if (!err) {
             res.send('Insert operation for user was successful');
         } else {
@@ -126,7 +139,7 @@ app.get('/modules', (req, res) => {
 
 // CREATE (INSERT) operation for modules
 app.post('/modules', (req, res) => {
-    const { module_name } = req.body; // Assuming you have module_name in the request body
+    const  module_name = req.body.modul;
     connection.query('INSERT INTO modules (module_name) VALUES (?)', [module_name], (err, result) => {
         if (!err) {
             res.send('Insert operation for modules was successful');
@@ -161,7 +174,7 @@ app.get('/semesters', (req, res) => {
 
 // CREATE (INSERT) operation for semesters
 app.post('/semesters', (req, res) => {
-    const { semester_name } = req.body; // Assuming you have semester_name in the request body
+    const  semester_name  = req.body.semester;
     connection.query('INSERT INTO semesters (semester_name) VALUES (?)', [semester_name], (err, result) => {
         if (!err) {
             res.send('Insert operation for semesters was successful');
@@ -196,8 +209,8 @@ app.get('/certificate', (req, res) => {
 
 // CREATE (INSERT) operation for certificate
 app.post('/certificate', (req, res) => {
-    const { user_id, module_id, semester_id } = req.body; // Assuming you have user_id, module_id, and semester_id in the request body
-    connection.query('INSERT INTO certificate (user_id, module_id, semester_id) VALUES (?, ?, ?)', [user_id, module_id, semester_id], (err, result) => {
+    const  user_id  = req.body.benutzer; const module_id = req.body.modul; const semester_id  = req.body.semester; const grade_id  = req.body.note; // Assuming you have user_id, module_id, and semester_id in the request body
+    connection.query('INSERT INTO certificate (user_id, module_id, semester_id, grade_id) VALUES (?, ?, ?, ?)', [user_id, module_id, semester_id, grade_id], (err, result) => {
         if (!err) {
             res.send('Insert operation for certificate was successful');
         } else {
@@ -231,7 +244,7 @@ app.get('/grades', (req, res) => {
 
 // CREATE (INSERT) operation for grades
 app.post('/grades', (req, res) => {
-    const { user_id, module_id, semester_id, grade } = req.body; // Assuming you have user_id, module_id, semester_id, and grade in the request body
+    const  user_id = req.body.benutzer; const module_id = req.body.modul; const semester_id = req.body.semester; const grade  = req.body.note; // Assuming you have user_id, module_id, semester_id, and grade in the request body
     connection.query('INSERT INTO grades (user_id, module_id, semester_id, grade) VALUES (?, ?, ?, ?)', [user_id, module_id, semester_id, grade], (err, result) => {
         if (!err) {
             res.send('Insert operation for grades was successful');
@@ -243,7 +256,7 @@ app.post('/grades', (req, res) => {
 
 // DELETE operation for grades
 app.delete('/grades/:id', (req, res) => {
-    connection.query('DELETE FROM grades WHERE user_id = ?', [req.params.id], (err, result) => {
+    connection.query('DELETE FROM grades WHERE grades_id = ?', [req.params.id], (err, result) => {
         if (!err) {
             res.send('Delete operation for grades was successful');
         } else {
